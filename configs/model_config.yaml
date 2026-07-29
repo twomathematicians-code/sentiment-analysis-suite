@@ -1,5 +1,33 @@
-model:
-  random_state: 42
-  test_size: 0.2
-  cv_folds: 5
-  threshold: 0.5
+# Sentiment Analysis Configuration
+sentiment:
+  engine: vader_plus_rules
+  min_text_length: 3
+  max_text_length: 5000
+  languages_supported:
+    - en
+    - fr
+    - de
+    - es
+
+emotions:
+  model: rule_based
+  emotions_list:
+    - joy
+    - sadness
+    - anger
+    - fear
+    - surprise
+    - disgust
+    - trust
+    - anticipation
+
+aspect:
+  max_aspects: 8
+  confidence_threshold: 0.4
+
+sources:
+  - twitter
+  - amazon
+  - news
+  - whatsapp
+  - general

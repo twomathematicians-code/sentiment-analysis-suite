@@ -1,16 +1,10 @@
-from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 from functools import lru_cache
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env")
-    environment: str = "development"
-    log_level: str = "INFO"
-    mlflow_tracking_uri: str = "http://localhost:5000"
-
-    @property
-    def database_url(self) -> str:
-        return "postgresql+asyncpg://mluser:mlpassword@localhost:5432/ml_db"
+    model_cache_dir: str = "/app/.model_cache"
+    batch_max_size: int = 100
+    default_language: str = "en"
 
 @lru_cache
 def get_settings() -> Settings:

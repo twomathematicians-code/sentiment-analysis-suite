@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Run the ml-sentiment-analysis-suite ML pipeline."""
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+"""Sentiment model evaluation pipeline."""
+import sys; from pathlib import Path; sys.path.insert(0, str(Path(__file__).parent.parent))
+import logging
+logging.basicConfig(level=logging.INFO)
 
-if __name__ == "__main__":
-    print("Pipeline placeholder — implement domain logic here.")
+# Placeholder for transformer fine-tuning pipeline
+# Would load HuggingFace datasets, fine-tune a sentiment model,
+# evaluate on test split, and export to ONNX for fast inference
+logging.info("Sentiment pipeline — ready for transformer fine-tuning")
